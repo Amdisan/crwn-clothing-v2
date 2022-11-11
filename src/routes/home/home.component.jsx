@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import CategoriesList from '../../components/categories-list/category-list.component';
 
 function Home() {
@@ -29,7 +31,11 @@ function Home() {
       }
     ]
     return (
-      <CategoriesList categories={categories}/>
+      <div>
+        <Outlet/>
+        <CategoriesList categories={categories}/>
+      </div>
+     
     );
   };
 
