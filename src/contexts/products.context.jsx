@@ -11,7 +11,7 @@ export const ProductsContext = createContext({
 
 //as the provider
 export const ProductsProvider = ({children}) => {
-    const [products, setProducts] = useState(PRODUCTS);
+    const [products] = useState(PRODUCTS);
     const value = {products};
 
    
