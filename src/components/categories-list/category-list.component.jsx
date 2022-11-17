@@ -1,11 +1,11 @@
 import './categories-list.style.scss';
-import CategoryItem from '../category-item/category-item.component';
+import CategoryItemC from '../category-item-c/category-item-c.component';
 
 function CategoriesList({categories}){
     return(
         <div className='categories-container'>
             {categories.map(cat => (
-            <CategoryItem key = {cat.id} category = {cat}/>
+            <CategoryItemC key = {cat.id} category = {cat}/>
             ))}          
         </div>
     )
