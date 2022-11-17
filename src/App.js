@@ -12,9 +12,9 @@ const App = () => {
     <Routes>
       <Route path='/' element={ <Navigation/> }>
         <Route index element={ <Home/> }/>  {/* same as index = {true}, makes this component as home page*/}
-        <Route path='/shop' element={ <Shop/> }/>
-        <Route path='/authentication' element={ <Authentication/> }/>
-        <Route path='/checkout' element={ <Checkout/> }/>
+        <Route path='shop/*' element={ <Shop/> }/>
+        <Route path='authentication' element={ <Authentication/> }/>
+        <Route path='checkout' element={ <Checkout/> }/>
       </Route>              
     </Routes>    
   );
