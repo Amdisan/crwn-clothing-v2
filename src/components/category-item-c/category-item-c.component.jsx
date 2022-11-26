@@ -1,15 +1,19 @@
-import './category-item-c.style.scss';
+import  './category-item-c.style';
+import {BackgroundImage, Body, CategoryItemCContainer} from './category-item-c.style';
 
 function CategoryItemC({category : {title, imageUrl}}){      
     return(
-        <div className='category-c-container'>
-          <div className='background-image' style={{backgroundImage: `url(${imageUrl})`}}/>
-          <div className='category-c-body-container'>
+        <CategoryItemCContainer>
+          <BackgroundImage imageUrl={imageUrl}
+          />
+          <Body>
             <h2>{title}</h2>
             <p>Shop Now</p>
-          </div>
-        </div>
+          </Body>
+        </CategoryItemCContainer>
     )
 }
 
 export default CategoryItemC;
+
+/*directory item in the course */

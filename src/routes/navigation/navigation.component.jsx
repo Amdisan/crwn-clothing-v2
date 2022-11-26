@@ -10,7 +10,7 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import { CartContext } from "../../contexts/cart.context";
 
-import "./navigation.styles.scss";
+import { NavigationContainer, NavLinksContainer, NavLink, LogoContainer } from './navigation.styles';
 
 
 function Navigation() {
@@ -20,23 +20,23 @@ function Navigation() {
 
     return (
       <Fragment> {/*Fragment - component to remove extra div we dont need. There will be no Fragment in dom*/} 
-        <div className="navigation">
-          <Link className="logo-container" to= "/">
+        <NavigationContainer>
+          <LogoContainer to= "/">
             <Logo className="logo"/>
-          </Link>            
-          <div className="nav-links-container">
-            <Link className="nav-link" to= "/shop"> SHOP
-             </Link>
+          </LogoContainer>            
+          <NavLinksContainer>
+            <NavLink to= "/shop"> SHOP
+             </NavLink>
             {currentUser ? (
-              <span className="nav-link" onClick={signOutUser}>SIGN OUT</span>
+              <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>
             ) : (
-              <Link className="nav-link" to= "/authentication"> SIGN IN </Link>
+              <NavLink to= "/authentication"> SIGN IN </NavLink>
             )}
             <CartIcon />
             
-          </div>
+          </NavLinksContainer>
           {isCartOpen && <CartDropdown/>}
-        </div>
+        </NavigationContainer>
         <Outlet/>
       </Fragment>    
     )
