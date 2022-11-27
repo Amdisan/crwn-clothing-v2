@@ -7,7 +7,7 @@ import FormInput from '../form-input/form-input.component';
 
 import Button from '../button/button.component';
 
-import './sign-up-form.style.scss';
+import {SignUpContainer} from './sign-up-form.style.jsx';
 
  const defaultFormFields = {
     displayName: '',
@@ -26,8 +26,7 @@ const SingUpForm = () => {
         setFormFields({...formFields, [name]: value})
     };
 
-    //console.log(formFields);
-
+    
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -57,7 +56,7 @@ const SingUpForm = () => {
     };
 
     return(
-        <div className='sign-up-container'>
+        <SignUpContainer>
             <h2>Don't have an account?</h2>
             <span>Sign up with your email and password</span>
             <form onSubmit = {handleSubmit}>                
@@ -98,7 +97,7 @@ const SingUpForm = () => {
                 />
                 <Button  type='submit'>Sign Up</Button>
             </form>
-        </div>
+        </SignUpContainer>
     )
 }
 
