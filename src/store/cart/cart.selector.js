@@ -21,5 +21,5 @@
         [selectCartItems],
         (cartItems) => cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0)
     );
-
+    
     

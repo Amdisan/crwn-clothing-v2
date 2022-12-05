@@ -1,4 +1,6 @@
 import ProductCard from '../product-card/product-card.component';
+import Spinner from '../spinner/spinner.component';
+
 import {Preview, Title, CategoryPreviewContainer} from './category-preview.style.jsx';
 
 const CategoryPreview = ({title, products}) => {
