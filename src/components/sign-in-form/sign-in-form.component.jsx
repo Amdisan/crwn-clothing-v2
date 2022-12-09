@@ -1,16 +1,14 @@
 
 import {useState} from 'react';
 
-import {
-    signInWithGooglePopup,    
-    signInUserWithEmailAndPassword,
-} from '../../utils/firebase/firebase.utils';
+import { useDispatch } from 'react-redux';
 
 import FormInput from '../form-input/form-input.component';
 
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 
 import {SignUpContainer, ButtonsContainer} from './sign-in-form.style.jsx';
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 
 
  const defaultFormFields = {
@@ -22,6 +20,8 @@ import {SignUpContainer, ButtonsContainer} from './sign-in-form.style.jsx';
 const SingInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
+
+    const dispatch = useDispatch();
     
 
     const  handleChange = (event) => {
@@ -35,7 +35,7 @@ const SingInForm = () => {
     }
 
     const signInWithGoogle = async function(){
-         await signInWithGooglePopup();         
+         dispatch(googleSignInStart());         
     }
     
 
@@ -43,7 +43,7 @@ const SingInForm = () => {
         event.preventDefault();
         
         try {
-            await signInUserWithEmailAndPassword(email, password);
+           dispatch(emailSignInStart(email, password));
             
             resetFormFields();
 
@@ -56,7 +56,7 @@ const SingInForm = () => {
                     alert('no such user');
                     break;
                 default:
-                    console.log(error);
+                    console.log('User login with email and password error: ', error);
             }            
         }        
     };
